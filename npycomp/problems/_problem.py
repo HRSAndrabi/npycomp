@@ -30,6 +30,12 @@ class Problem(ABC):
 
     def reduce(self, target):
         """Reduce the problem to a target problem."""
+        if target not in directory.PROBLEMS:
+            raise NotImplementedError(
+                f"'{target}' is not a valid problem. "
+                "Must be one of {directory.PROBLEMS}"
+            )
+
         if self.name == target:
             return self._kwargs
 

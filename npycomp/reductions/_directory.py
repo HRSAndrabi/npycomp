@@ -3,6 +3,8 @@ from collections import defaultdict
 
 from npycomp.reductions import clique_to_sat
 
+PROBLEMS = ["SAT", "Clique"]
+
 INDEX = {
     ("clique", "SAT"): clique_to_sat,
 }
