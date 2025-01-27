@@ -8,3 +8,4 @@ sphinx-sitemap==2.6.0
 sphinx_design==0.6.1
 pydata-sphinx-theme==0.16.1
 numpydoc
+matplotlib

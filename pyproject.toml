@@ -43,6 +43,7 @@ doc = [
 	"sphinx_design==0.6.1",
 	"pydata-sphinx-theme==0.16.1",
     "numpydoc",
+	"matplotlib",
 ]
 
 [project.urls]
