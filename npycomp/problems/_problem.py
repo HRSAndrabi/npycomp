@@ -144,3 +144,22 @@ class Problem(ABC):
             current = next
 
         return reduction_kwargs
+
+    @classmethod
+    @abstractmethod
+    def from_dimacs(cls, path: str, **kwargs):
+        """Load a problem instance from a DIMACS file.
+
+        Parameters
+        ----------
+        path : str
+            The path to a DIMACS file.
+        **kwargs
+            Additional keyword arguments needed by the problem.
+
+        Returns
+        -------
+        Problem
+            A problem instance created from the DIMACS file.
+        """
+        pass
