@@ -39,6 +39,12 @@ class Problem(ABC):
         if self.name == target:
             return self._kwargs
 
+        if (self.name, target) not in directory.INDEX:
+            raise NotImplementedError(
+                f"Cannot reduce {self.name} to {target}. "
+                f"Missing reduction function."
+            )
+
         path = directory.path(self.name, target)
         reduction_kwargs = self._kwargs
         current = self.name
