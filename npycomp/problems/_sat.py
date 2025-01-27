@@ -2,7 +2,41 @@ from npycomp.problems._problem import Problem
 
 
 class SAT(Problem):
-    """A SAT problem.
+    r"""A Boolean Satisfiability (SAT) problem.
+
+    A `SAT Problem`_ is a classical decision problem in computer science that
+    asks whether there exists an assignment of variables that satisfies a given
+    Boolean formula.
+
+    Formally, a SAT problem is defined by a formula, :math:`\varphi`, over a
+    set of boolean variables, :math:`X = \{x_1, x_2, \ldots, x_n\}`. A formula
+    is said  to be satisfiable if there exists an assignment of truth values
+    (TRUE or FALSE) to :math:`X` such that the formula evaluates to TRUE. A SAT
+    formula, :math:`\varphi`, is typically given in `Conjunction Normal Form
+    (CNF)`_. A formula is considered to be CNF if it is a `conjunction`_
+    (logical AND, :math:`\land`) of clauses,
+
+    .. math::
+
+        \varphi = C_i \land C_{i+1} \land \ldots \land C_m,
+
+    where each clause :math:`C_i` is a `disjunction`_ (logical OR,
+    :math:`\lor`) of one or more literals. A literal is either a variable
+    :math:`x_j` or its negation :math:`\neg x_j`. Concretely,
+
+    .. math::
+
+        C_i = (l_{i1} \lor l_{i2} \lor \ldots \lor l_{ik_i})
+
+    The SAT problem asks whether there exists an assignment of truth values
+    (True or False) to the variables :math:`x_1, x_2, \ldots, x_n` such that
+    the entire formula :math:`\varphi` evaluates to True. When such an
+    assignment exists, the formula is said to be *satisfiable*.
+
+    .. _SAT Problem: https://en.wikipedia.org/wiki/Boolean_satisfiability_problem
+    .. _Conjunction Normal Form (CNF): https://en.wikipedia.org/wiki/Conjunctive_normal_form
+    .. _conjunction: https://en.wikipedia.org/wiki/Logical_conjunction
+    .. _disjunction: https://en.wikipedia.org/wiki/Logical_disjunction
 
     Parameters
     ----------
