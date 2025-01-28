@@ -8,6 +8,7 @@ for the full list of benchmarks.
 """
 
 import pytest
+
 from npycomp.problems import Clique
 
 

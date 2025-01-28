@@ -51,8 +51,11 @@ class Problem(ABC):
             A satisfying assignment to the problem instance, or ``False`` if no
             such assignment exists.
         """
-        kwargs = self.reduce("SAT")
-        reduction = _SATSolver(**kwargs)
+        if self.name == "SAT":
+            return _SATSolver(**self._kwargs).solve()
+
+        clauses = self.reduce("SAT")
+        reduction = _SATSolver(clauses)
         solution = reduction.solve()
         return self.reconstruct(solution)
 
@@ -124,9 +127,6 @@ class Problem(ABC):
                 f"'{target}' is not a valid problem. "
                 "Must be one of {directory.PROBLEMS}"
             )
-
-        if self.name == target:
-            return self._kwargs
 
         if (self.name, target) not in directory.INDEX:
             raise NotImplementedError(
