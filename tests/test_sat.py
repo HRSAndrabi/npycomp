@@ -10,6 +10,7 @@ DIMACS format. See https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/DIMACS/AIM/
 import glob
 
 import pytest
+
 from npycomp.problems import SAT
 
 
