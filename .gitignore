@@ -43,3 +43,4 @@ docs/**/generated
 # Misc
 test.ipynb
 .DS_Store
+.tox
