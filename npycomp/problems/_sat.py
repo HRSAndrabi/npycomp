@@ -55,7 +55,6 @@ class SAT(Problem):
 
     @property
     def formula(self):
-        """The formula of the problem."""
         return " ∧ ".join(
             [self._clause_to_string(clause) for clause in self._clauses]
         )
