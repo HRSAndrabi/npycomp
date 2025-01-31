@@ -44,3 +44,4 @@ docs/**/generated
 test.ipynb
 .DS_Store
 .tox
+*.afdesign
