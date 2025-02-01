@@ -4,20 +4,28 @@ from npycomp.solvers._solver import _SATSolver
 class DPLL(_SATSolver):
     """Davis-Putnam-Logemann-Loveland (DPLL) solver for SAT.
 
-    Implementation of The Davis–Putnam–Logemann–Loveland (DPLL) recursive
-    backtracking procedure for solving the SAT problem. The algorithm
-    performs unit propagation and pure literal elimination to simplify the
-    formula, and then recursively assigns values to variables until a
-    solution is found or the formula is unsatisfiable.
+    Implementation of The `Davis–Putnam–Logemann–Loveland`_ (DPLL) recursive
+    backtracking procedure for solving the SAT problem. The algorithm runs by
+    choosing a literal, assigning a truth value to it, simplifying the formula
+    and then recursively checking if the simplified formula is satisfiable; if
+    this is the case, the original formula is satisfiable; otherwise, the same
+    recursive check is done assuming the opposite truth value.
 
-    Unit propagation: If a clause contains only one unassigned literal,
-    assign the literal to the value that makes the clause true. Remove
-    every clause containing the literal, and remove the negation of the
-    literal from every clause.
+    The DPLL algorithm improves over naive backtracking by applying
+    `unit propagation`_ and pure literal elimination to simplify the formula at
+    each step. These techniques reduce the total search space and improve the
+    efficiency of the algorithm.
 
-    Pure literal elimination: If a literal appears with the same sign in
-    all clauses, assign the literal to the value that makes the clauses
-    true. Remove every clause containing the literal.
+    **Unit propagation**. If a clause contains only one unassigned literal,
+    the literal can be assigned to true, and all clauses containing the
+    literal can be removed.
+
+    **Pure literal elimination**. If a literal is pure if it appears with only
+    one polarity in the formula. Pure literals can always be assigned in a way
+    that makes the clauses containing them true.
+
+    .. _Davis–Putnam–Logemann–Loveland: https://en.wikipedia.org/wiki/DPLL_algorithm
+    .. _unit propagation: https://en.wikipedia.org/wiki/Unit_propagation
 
     Parameters
     ----------
