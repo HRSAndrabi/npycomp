@@ -83,13 +83,31 @@ class _SATSolver(ABC):
             "(" + " ∨ ".join(self._literal_to_string(l) for l in clause) + ")"
         )
 
-    def model_to_string(self, model):
+    def model_to_string(self, model) -> str:
         """Convert a model to a human-readible string.
 
         Parameters
         ----------
         model : list
             A list of variable assignments.
+
+        Returns
+        -------
+        str
+            A human-readible string representation of the model.
+
+        Examples
+        --------
+        Recover a set of variable assignments from a given model.
+
+        >>> from npycomp.solvers import DPLL
+        >>> clauses = [("x1", "x2"), ("~x1", "~x2")]
+        >>> solver = DPLL(clauses)
+        >>> model = solver.solve()
+        >>> model
+        [1, 0]
+        >>> solver.model_to_string(model)
+        x1 = 1, x2 = 1
         """
         output = []
         for i, assignment in enumerate(model):
@@ -114,13 +132,13 @@ class _SATSolver(ABC):
         Solve a SAT problem defined by a list of clauses.
 
         >>> from npycomp.solvers import DPLL
-        >>> clauses = [("x1", "~x2"), ("~x1", "x2")]
+        >>> clauses = [("x1", "~x2"), ("x1", "x2")]
         >>> solver = DPLL(clauses)
         >>> model = solver.solve()
         >>> model
-        [1, 1]
+        [1, None]
         >>> solver.model_to_string(model)
-        x1 = 1, x2 = 1
+        x1 = 1, x2 ∈ {0, 1}
 
         Reduce a problem to SAT and solve it.
 
