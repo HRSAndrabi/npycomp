@@ -30,9 +30,9 @@ class Problem(ABC):
         in reduction directories.
     """
 
-    def __init__(self, name: str, **kwargs):
+    def __init__(self, name: str, *args):
         self._name = name
-        self._kwargs = kwargs
+        self._args = args
 
     @property
     def name(self):
@@ -52,7 +52,7 @@ class Problem(ABC):
             such assignment exists.
         """
         if self.name == "SAT":
-            return _SATSolver(**self._kwargs).solve()
+            return _SATSolver(*self._args).solve()
 
         clauses = self.reduce("SAT")
         reduction = _SATSolver(clauses)
@@ -128,22 +128,21 @@ class Problem(ABC):
                 "Must be one of {directory.PROBLEMS}"
             )
 
-        if (self.name, target) not in directory.INDEX:
-            raise NotImplementedError(
-                f"Cannot reduce {self.name} to {target}. "
-                f"Missing reduction function."
-            )
-
         path = directory.path(self.name, target)
-        reduction_kwargs = self._kwargs
+        reduction_args = self._args
         current = self.name
         while path:
-            next = path.pop()
+            next = path.pop(0)
+            if (current, next) not in directory.INDEX:
+                raise NotImplementedError(
+                    f"Cannot reduce {self.name} to {target}. "
+                    f"Missing reduction function."
+                )
             reduction_func = directory.INDEX[(current, next)]
-            reduction_kwargs = reduction_func(**reduction_kwargs)
+            reduction_args = reduction_func(*reduction_args)
             current = next
 
-        return reduction_kwargs
+        return reduction_args
 
     @classmethod
     @abstractmethod

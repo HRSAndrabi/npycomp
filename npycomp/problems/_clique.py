@@ -14,7 +14,7 @@ class Clique(Problem):
     def __init__(self, A: list[list], k: int):
         self._A = A
         self._k = k
-        super().__init__("clique", A=A, k=k)
+        super().__init__("clique", A, k)
 
     def reconstruct(self, solution):
         """Reconstruct the solution."""

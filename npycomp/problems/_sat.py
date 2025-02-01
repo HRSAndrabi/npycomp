@@ -51,7 +51,7 @@ class SAT(Problem):
 
     def __init__(self, clauses: list):
         self._formula = clauses
-        Problem.__init__(self, "SAT", clauses=clauses)
+        Problem.__init__(self, "SAT", clauses)
 
     @property
     def formula(self):
