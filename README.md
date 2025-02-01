@@ -6,7 +6,7 @@
 ![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FHRSAndrabi%2Fnpycomp%2Fmain%2Fpyproject.toml)
 [![image](https://img.shields.io/pypi/l/npycomp.svg)](https://github.com/astral-sh/npycomp/blob/main/LICENSE)
 
-NPyComp is an open-source Python library for reductions between [NP-complete](https://en.wikipedia.org/wiki/NP-completeness) problems. It includes tools for defining instances of NP-complete problems, reducing instances of one problem to another, and solving them using SAT algorithms.
+NPyComp is an open-source Python library for reductions between [NP-complete](https://en.wikipedia.org/wiki/NP-completeness) problems. It includes tools for defining instances of NP-complete problems, reducing instances of one problem to another, and solving them using SAT solvers.
 
 - **Documentation:** [https://npycomp.readthedocs.io](https://npycomp.readthedocs.io)
 - **Installation** [https://npycomp.readthedocs.io/latest/installation/index.html](https://npycomp.readthedocs.io/latest/installation/index.html)
@@ -20,7 +20,7 @@ NPyComp provides a Python interface for working with NP-complete problems. For i
 
 ## Contributing
 
-Contributions via small improvements or fixes are always appreciated. If you are interested in contributing, have a look at [our contributing guide](https://npycomp.readthedocs.io/latest/contributing/index.html).
+Contributions via small improvements or fixes are always appreciated. If you are interested in contributing, have a look at the[contributing guide](https://npycomp.readthedocs.io/latest/contributing/index.html).
 
 Writing code isn’t the only way to contribute to NPyComp. You can also:
 
