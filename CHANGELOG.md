@@ -1,6 +1,21 @@
 # CHANGELOG
 
 
+## v0.1.1 (2025-02-01)
+
+### Bug Fixes
+
+* fix: \`Problem\`should be initialised with args, not kwargs.
+
+All reduction functions return args for the corresponding
+reduced problem, not kwargs. \`Problem.__init__()\` expects kwargs,
+resulting in errors. Refactored to excepts args instaed of kwargs. ([`ea5c22e`](https://github.com/HRSAndrabi/npycomp/commit/ea5c22e478b58cf3ad16a4da2329ff47907202b9))
+
+### Documentation
+
+* docs: add 3sat autosummary directive. ([`79db04a`](https://github.com/HRSAndrabi/npycomp/commit/79db04a1a15bcafdfd812f5fb245fa1891026dd6))
+
+
 ## v0.1.0 (2025-02-01)
 
 ### Build System
