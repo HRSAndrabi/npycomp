@@ -1,13 +1,18 @@
 import heapq
 from collections import defaultdict
 
-from npycomp.reductions import clique_to_sat, threesat_to_clique
+from npycomp.reductions import (
+    clique_to_sat,
+    threesat_to_clique,
+    threesat_to_sat,
+)
 
 PROBLEMS = ["SAT", "3SAT", "clique"]
 
 INDEX = {
     ("clique", "SAT"): clique_to_sat,
     ("3SAT", "clique"): threesat_to_clique,
+    ("3SAT", "SAT"): threesat_to_sat,
 }
 
 _GRAPH = defaultdict(set)
