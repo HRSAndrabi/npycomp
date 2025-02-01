@@ -11,8 +11,10 @@ Problems
    :toctree: problems
 
    SAT - A SAT problem defined by clauses in CNF form.
+   ThreeSAT - A 3-SAT problem defined by clauses in CNF form.
    Clique - A Clique problem defined by an adjacency matrix and a clique size.
 """
 
+from npycomp.problems._3sat import ThreeSAT
 from npycomp.problems._clique import Clique
 from npycomp.problems._sat import SAT
