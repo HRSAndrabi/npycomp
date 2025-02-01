@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "npycomp"
-version = "0.1.1"
+version = "0.2.0"
 description = "A Python library for NP-complete reductions."
 authors = [
     { name = "Hassan Andrabi", email = "hrs.andrabi@gmail.com" }

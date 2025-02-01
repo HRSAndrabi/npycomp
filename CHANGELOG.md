@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-02-01)
+
+### Documentation
+
+* docs: add reduction autosummaries. ([`b542107`](https://github.com/HRSAndrabi/npycomp/commit/b5421071c974b36f2ddffcb4bdb9ba66ed1221fc))
+
+### Features
+
+* feat: add 3sat to sat link. ([`a7359f0`](https://github.com/HRSAndrabi/npycomp/commit/a7359f0656c1115aa3548b70bcb0243fe60d01b0))
+
+
 ## v0.1.1 (2025-02-01)
 
 ### Bug Fixes
