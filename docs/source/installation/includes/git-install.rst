@@ -14,17 +14,16 @@ To install the latest version of NPyComp directly from GitHub, clone the reposit
    - If you forked the repository, run:
 
      .. code-block:: bash
-        :emphasize-text: GITHUB_USERNAME
+      
+        git clone https://github.com/{GITHUB_USERNAME}/npycomp.git
 
-        git clone https://github.com/GITHUB_USERNAME/npycomp.git
-
-     Replace :samp:`{GITHUB_USERNAME}` with your GitHub username.
+     Replace ``{GITHUB_USERNAME}`` with your GitHub username.
 
    - If you didn't fork the repository, clone the original repository:
 
      .. code-block:: bash
 
-        git clone https://github.com/yourusername/npycomp.git
+        git clone https://github.com/HRSAndrabi/npycomp.git
 
 #. **Install NPyComp in editable mode:**
 

@@ -1,7 +1,7 @@
 Prerequisites
 -------------
 
-* Python 3.12 or higher is required.
+* Python 3.10 or higher is required.
 * Recommended: a virtual environment (such as `virtualenv`_) to manage dependencies and avoid conflicts.
 
 Install using pip 
