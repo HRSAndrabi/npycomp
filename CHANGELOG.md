@@ -1,6 +1,33 @@
 # CHANGELOG
 
 
+## v0.1.0 (2025-02-01)
+
+### Build System
+
+* build: install tox. ([`fde07e7`](https://github.com/HRSAndrabi/npycomp/commit/fde07e7f8b239f2b1f8901895c13f011c0dcbf44))
+
+### Chores
+
+* chore: ruff lint refactor. ([`ef91096`](https://github.com/HRSAndrabi/npycomp/commit/ef91096977bde480ac4de00c52fd0d501b4e6bea))
+
+### Continuous Integration
+
+* ci: test on py310-313. ([`9dd12c1`](https://github.com/HRSAndrabi/npycomp/commit/9dd12c1656df2eced4a22d7929fd584745d19b5d))
+
+* ci: test workflow uses tox. ([`26d770e`](https://github.com/HRSAndrabi/npycomp/commit/26d770e2957c6c918c705b7eba47fd28d664fcfa))
+
+### Documentation
+
+* docs: add sphinx docs. ([`973476f`](https://github.com/HRSAndrabi/npycomp/commit/973476fe57c7ce8a8a1cbce74fb5e641ea222e30))
+
+* docs: remove redundant docstring. ([`966e21a`](https://github.com/HRSAndrabi/npycomp/commit/966e21a41370ebf503b21538269b36d52bd57489))
+
+### Features
+
+* feat: add 3SAT and 3SAT to Clique reduction. ([`5f2abb9`](https://github.com/HRSAndrabi/npycomp/commit/5f2abb9b0d0a70e0260d4e7e92f0867993608f09))
+
+
 ## v0.0.1 (2025-01-28)
 
 ### Bug Fixes
