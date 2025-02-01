@@ -2,7 +2,7 @@ import copy
 from abc import ABC, abstractmethod
 
 import npycomp.reductions._directory as directory
-from npycomp.problems._sat_solver import _SATSolver
+from npycomp.solvers import DPLL
 
 
 class Problem(ABC):
@@ -51,12 +51,9 @@ class Problem(ABC):
             A satisfying assignment to the problem instance, or ``False`` if no
             such assignment exists.
         """
-        if self.name == "SAT":
-            return _SATSolver(*self._args).solve()
-
         clauses = self.reduce("SAT")
-        reduction = _SATSolver(clauses)
-        solution = reduction.solve()
+        solver = DPLL(clauses)
+        solution = solver.solve()
         return self.reconstruct(solution)
 
     def reconstruct(self, solution):
@@ -127,6 +124,9 @@ class Problem(ABC):
                 f"'{target}' is not a valid problem. "
                 "Must be one of {directory.PROBLEMS}"
             )
+
+        if self.name == "SAT" and target == "SAT":
+            return self._args[0]
 
         path = directory.path(self.name, target)
         reduction_args = self._args

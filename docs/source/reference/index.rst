@@ -9,3 +9,4 @@ This reference manual details functions, modules, and objects included in NPyCom
    
    npycomp.problems
    npycomp.reductions
+   npycomp.solvers

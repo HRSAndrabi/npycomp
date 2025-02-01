@@ -1,45 +1,32 @@
-class _SATSolver:
-    """SAT solver.
+from npycomp.solvers._solver import _SATSolver
 
-    This class is not part of the public API. It exists to avoid self-reference
-    in `SAT.reduce()`.
+
+class DPLL(_SATSolver):
+    """Davis-Putnam-Logemann-Loveland (DPLL) solver for SAT.
+
+    Implementation of The Davis–Putnam–Logemann–Loveland (DPLL) recursive
+    backtracking procedure for solving the SAT problem. The algorithm
+    performs unit propagation and pure literal elimination to simplify the
+    formula, and then recursively assigns values to variables until a
+    solution is found or the formula is unsatisfiable.
+
+    Unit propagation: If a clause contains only one unassigned literal,
+    assign the literal to the value that makes the clause true. Remove
+    every clause containing the literal, and remove the negation of the
+    literal from every clause.
+
+    Pure literal elimination: If a literal appears with the same sign in
+    all clauses, assign the literal to the value that makes the clauses
+    true. Remove every clause containing the literal.
+
+    Parameters
+    ----------
+    clauses : list[tuple[str]]
+        A list of clauses in conjunctive normal form (CNF).
     """
 
-    def __init__(self, clauses: list):
-        self._variable_table = {}
-        self._variables = []
-        self._clauses = [self._parse_clause(clause) for clause in clauses]
-        self._unit_clauses = []
-        self._pure_literals = []
-
-    def _parse_clause(self, clause: tuple[str]) -> tuple[int]:
-        """Parse a clause.
-
-        Variables are encoded as numbers 0 to n-1, where n is the number of
-        variables. Positive literals with variables encoded with integer
-        x are encoded as 2x, and negated literals are encoded as 2*x + 1. A
-        parsed clause is a tuple of encoded literals.
-
-        Parameters
-        ----------
-        clause : tuple[str]
-            A clause.
-
-        Returns
-        -------
-        tuple[int]
-            A parsed clause.
-        """
-        parsed_clause = []
-        for literal in clause:
-            negated = 1 if literal.startswith("~") else 0
-            variable = literal[negated:]
-            if variable not in self._variable_table:
-                self._variable_table[variable] = len(self._variables)
-                self._variables.append(variable)
-            encoded_literal = self._variable_table[variable] << 1 | negated
-            parsed_clause.append(encoded_literal)
-        return tuple(set(parsed_clause))
+    def __init__(self, clauses: list[tuple[str]]):
+        super().__init__(clauses)
 
     def _unit_clauses_exist(self, clauses):
         """Check if unit clauses exist.
@@ -122,21 +109,6 @@ class _SATSolver:
     def _dpll(self, clauses, model):
         """Perform the DPLL procedure.
 
-        Implementation of The Davis–Putnam–Logemann–Loveland (DPLL) recursive
-        backtracking procedure for solving the SAT problem. The algorithm
-        performs unit propagation and pure literal elimination to simplify the
-        formula, and then recursively assigns values to variables until a
-        solution is found or the formula is unsatisfiable.
-
-        Unit propagation: If a clause contains only one unassigned literal,
-        assign the literal to the value that makes the clause true. Remove
-        every clause containing the literal, and remove the negation of the
-        literal from every clause.
-
-        Pure literal elimination: If a literal appears with the same sign in
-        all clauses, assign the literal to the value that makes the clauses
-        true. Remove every clause containing the literal.
-
         Parameters
         ----------
         clauses : list
@@ -176,6 +148,5 @@ class _SATSolver:
         return False
 
     def solve(self):
-        """Solve the problem."""
         model = self._dpll(self._clauses, [None] * len(self._variables))
         return model
