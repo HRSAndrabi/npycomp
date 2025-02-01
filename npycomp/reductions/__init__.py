@@ -5,4 +5,5 @@ NP-complete problems. Each reduction in this module is a function that
 transforms an instance of one problem into an instance of another problem.
 """
 
+from npycomp.reductions._3sat_to_clique import threesat_to_clique
 from npycomp.reductions._clique_to_sat import clique_to_sat
